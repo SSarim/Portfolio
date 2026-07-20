@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarim Shahwar — Quantitative & Data Engineer</title>
+<meta name="description" content="Sarim Shahwar — Quantitative & Data Engineer. Computer Engineering @ TMU. Experience at CPPIB, LUCA Theory, MEDCAN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e14; --bg2:#0d1220; --card:#111827cc; --border:#1e2a3a;
+  --text:#e6edf3; --muted:#8b98a9; --accent:#22d3a5; --accent2:#4f9cf9; --amber:#f5b950;
+  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:#04110c}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Nav */
+nav{position:fixed;top:0;width:100%;z-index:100;background:#0a0e14e6;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--mono);font-weight:600;font-size:1rem;color:var(--text)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);text-decoration:none}
+.nav-links a .n{font-family:var(--mono);color:var(--accent);font-size:.75rem;margin-right:4px}
+.burger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;right:0;background:var(--bg2);flex-direction:column;padding:20px;width:220px;border:1px solid var(--border);border-top:none}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+}
+
+/* Hero */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+#chart-bg{position:absolute;inset:0;opacity:.5}
+.hero-inner{max-width:1100px;margin:0 auto;padding:100px 24px 60px;position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;width:100%}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+.kicker{font-family:var(--mono);color:var(--accent);font-size:.9rem;margin-bottom:14px}
+h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.role-line{font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--muted);margin:16px 0 8px;font-weight:600;min-height:2em}
+.role-line .typed{color:var(--accent2)}
+.cursor-blink{display:inline-block;width:10px;background:var(--accent2);animation:blink 1s step-end infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.hero-desc{color:var(--muted);max-width:520px;margin-bottom:28px}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:8px;font-weight:600;font-size:.92rem;transition:all .2s;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#04110c}
+.btn-primary:hover{background:#2ee8b8;text-decoration:none;transform:translateY(-2px)}
+.btn-ghost{border-color:var(--border);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;transform:translateY(-2px)}
+
+/* Terminal */
+.terminal{background:#0b1018;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px #0008;font-family:var(--mono);font-size:.82rem}
+.term-bar{background:#131a26;padding:10px 14px;display:flex;gap:7px;align-items:center}
+.dot{width:11px;height:11px;border-radius:50%}
+.term-title{color:var(--muted);font-size:.72rem;margin-left:8px}
+.term-body{padding:18px;min-height:280px;color:#c9d4e0}
+.term-body .prompt{color:var(--accent)}
+.term-body .out{color:var(--muted)}
+.term-body .hl{color:var(--amber)}
+.term-body div{margin-bottom:4px;word-break:break-word}
+
+/* Sections */
+section{max-width:1100px;margin:0 auto;padding:90px 24px}
+.sec-title{font-size:1.8rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.sec-title .n{font-family:var(--mono);color:var(--accent);font-size:1.1rem}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-sub{color:var(--muted);margin-bottom:40px;max-width:640px}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:36px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;text-align:center}
+.stat .num{font-family:var(--mono);font-size:1.9rem;font-weight:600;color:var(--accent)}
+.stat .lbl{color:var(--muted);font-size:.85rem;margin-top:4px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}}
+.about-grid p{color:var(--muted);margin-bottom:16px}
+.about-grid strong{color:var(--text)}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.edu-card h3{font-size:1.05rem}
+.edu-card .mono{font-family:var(--mono);font-size:.8rem;color:var(--accent);margin:6px 0}
+.edu-card p{font-size:.88rem;margin-bottom:8px}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.titem{position:relative;margin-bottom:36px}
+.titem::before{content:'';position:absolute;left:-28px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.titem .when{font-family:var(--mono);font-size:.78rem;color:var(--accent);margin-bottom:4px}
+.titem h3{font-size:1.15rem}
+.titem .co{color:var(--accent2);font-weight:600;font-size:.95rem;margin-bottom:10px}
+.titem ul{list-style:none;color:var(--muted);font-size:.92rem}
+.titem li{margin-bottom:7px;padding-left:18px;position:relative}
+.titem li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+.earlier{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.mini{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.mini h4{font-size:.95rem}
+.mini .m{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin:3px 0 6px}
+.mini p{font-size:.83rem;color:var(--muted)}
+
+/* Projects */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.fbtn{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 18px;border-radius:20px;font-family:var(--mono);font-size:.8rem;cursor:pointer;transition:all .2s}
+.fbtn:hover{border-color:var(--accent);color:var(--accent)}
+.fbtn.active{background:var(--accent);color:#04110c;border-color:var(--accent);font-weight:600}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,opacity .3s;position:relative}
+.pcard:hover{transform:translateY(-6px);border-color:var(--accent)}
+.pcard.hide{display:none}
+.pcard .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.pcard .icon{font-size:1.6rem}
+.pcard .links a{color:var(--muted);margin-left:12px;font-size:1.05rem}
+.pcard .links a:hover{color:var(--accent);text-decoration:none}
+.pcard h3{font-size:1.12rem;margin-bottom:8px}
+.pcard .desc{color:var(--muted);font-size:.88rem;flex:1;margin-bottom:16px}
+.badge{font-family:var(--mono);font-size:.65rem;padding:3px 9px;border-radius:10px;border:1px solid var(--amber);color:var(--amber);margin-left:8px;vertical-align:middle}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:var(--mono);font-size:.7rem;color:var(--accent2);background:#4f9cf915;padding:3px 10px;border-radius:10px}
+
+/* Skills */
+.skill-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.sgroup{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.sgroup h3{font-size:.95rem;font-family:var(--mono);color:var(--accent);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.8rem;padding:5px 13px;border-radius:8px;background:#1a2332;color:#c9d4e0;border:1px solid var(--border);transition:all .2s;cursor:default}
+.chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* Contact */
+#contact{text-align:center}
+#contact .sec-title{justify-content:center}
+#contact .sec-title::after{display:none}
+#contact p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;color:var(--muted);font-size:.8rem;font-family:var(--mono)}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--accent)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Scroll progress */
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:101;width:0}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">sarim<span>@</span>shahwar<span>:~$</span></div>
+    <button class="burger" id="burger">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"><span class="n">01.</span>About</a></li>
+      <li><a href="#experience"><span class="n">02.</span>Experience</a></li>
+      <li><a href="#projects"><span class="n">03.</span>Projects</a></li>
+      <li><a href="#skills"><span class="n">04.</span>Skills</a></li>
+      <li><a href="#contact"><span class="n">05.</span>Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="hero">
+  <canvas id="chart-bg"></canvas>
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">// hello, world</div>
+      <h1>Sarim Shahwar</h1>
+      <div class="role-line"><span class="typed" id="typed"></span><span class="cursor-blink">&nbsp;</span></div>
+      <p class="hero-desc">Computer Engineering graduate (TMU '26) building high-throughput data systems, algorithmic engines, and ML pipelines — from a $700B+ valuations platform at CPPIB to market simulation engines at LUCA Theory.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="mailto:sarimshahwar@gmail.com">Get in Touch</a>
+        <a class="btn btn-ghost" href="https://github.com/SSarim" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="terminal reveal">
+      <div class="term-bar">
+        <span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span>
+        <span class="term-title">sarim@portfolio — zsh</span>
+      </div>
+      <div class="term-body" id="termBody"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="sec-title reveal"><span class="n">01.</span>About</h2>
+  <div class="about-grid">
+    <div class="reveal">
+      <p>I'm a <strong>Quantitative &amp; Data Engineer</strong> with a BEng in Computer Engineering from TMU (Class of 2026, GPA 3.55). I work at the intersection of <strong>algorithmic systems, distributed infrastructure, and machine learning</strong> — designing engines that turn raw market and operational data into real-time decisions.</p>
+      <p>At <strong>CPPIB</strong> I refactored and scaled the Valuations data platform powering reporting on <strong>$700B+ in assets</strong>. At <strong>LUCA Theory</strong> I built a "Digital Twin" market simulation engine hitting <strong>72% directional accuracy</strong>, and now engineer the production backend for their public Hive platform.</p>
+      <p>I care about correctness under load: schema-enforced pipelines, deterministic tests, and infrastructure that scales without babysitting.</p>
+      <div class="stats">
+        <div class="stat reveal"><div class="num" data-count="700" data-suffix="B+">$0</div><div class="lbl">Assets supported (CPPIB)</div></div>
+        <div class="stat reveal"><div class="num" data-count="72" data-suffix="%">0</div><div class="lbl">Model directional accuracy</div></div>
+        <div class="stat reveal"><div class="num" data-count="100" data-suffix="K+">0</div><div class="lbl">Events per LOB simulation</div></div>
+        <div class="stat reveal"><div class="num" data-count="4" data-suffix="">0</div><div class="lbl">Engineering internships</div></div>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <h3>🎓 Toronto Metropolitan University</h3>
+      <div class="mono">BEng, Computer Engineering · 2021 – 2026</div>
+      <p><strong style="color:var(--text)">GPA:</strong> 3.55</p>
+      <p><strong style="color:var(--text)">Graduate coursework:</strong> Intelligent Systems, Distributed &amp; Cloud Computing, Computer Vision, Engineering Algorithms</p>
+      <p><strong style="color:var(--text)">Quantitative math:</strong> Probability &amp; Stochastic Processes, Differential Equations &amp; Vector Calculus, Linear Algebra, Discrete Math</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="sec-title reveal"><span class="n">02.</span>Experience</h2>
+  <div class="timeline">
+    <div class="titem reveal">
+      <div class="when">APR 2026 — JUL 2026</div>
+      <h3>Data Intelligence &amp; Algorithm Engineer</h3>
+      <div class="co">LUCA Theory · Montreal (Remote)</div>
+      <ul>
+        <li>Built the high-throughput production backend powering the public-facing Hive platform — real-time algorithmic insights and predictive intelligence.</li>
+        <li>Enforced strict operational parameters with Zod schema validation: multi-variable confidence permutation scoring and time-locked synchronization.</li>
+        <li>Ran distributed task execution on Docker + GKE, syncing high-availability relational state with BigQuery across parallel pipelines.</li>
+      </ul>
+    </div>
+    <div class="titem reveal">
+      <div class="when">JAN 2026 — APR 2026</div>
+      <h3>Senior Engineer Intern</h3>
+      <div class="co">Canada Pension Plan Investment Board (CPPIB) · Toronto</div>
+      <ul>
+        <li>Refactored and scaled the Valuations data system (Python, AWS EKS, Athena, S3) supporting reporting of $700B+ in assets while cutting infra costs.</li>
+        <li>Integrated Pydantic schema enforcement for complex financial models across microservices.</li>
+        <li>Orchestrated fault-tolerant ETL with Apache Airflow; built GitHub Actions CI/CD with automated unit and integration testing.</li>
+      </ul>
+    </div>
+    <div class="titem reveal">
+      <div class="when">SEP 2025 — DEC 2025</div>
+      <h3>Software QA Intern</h3>
+      <div class="co">MEDCAN · Toronto</div>
+      <ul>
+        <li>Built cross-browser automation with Selenium WebDriver + TestNG (POM, data-driven, parallel) and AccelQ regression suites.</li>
+        <li>Drafted end-to-end test cases from PRDs, mapped to requirements (RTM); validated APIs (Postman) and databases (SQL); tracked defects in Jira.</li>
+      </ul>
+    </div>
+    <div class="titem reveal">
+      <div class="when">MAY 2025 — AUG 2025</div>
+      <h3>Quantitative Engineer Intern</h3>
+      <div class="co">LUCA Theory · Montreal (Remote)</div>
+      <ul>
+        <li>Built a "Digital Twin" ML engine simulating market scenarios — 72% directional accuracy, realized ROI of 21.4%–68.7% across volatility regimes.</li>
+        <li>Developed a RAG-augmented Bayesian learning loop recalibrating asset probability weights from live market feedback.</li>
+        <li>Ran parallel Monte Carlo simulations on auto-scaling Docker/GKE clusters with a custom JavaScript dashboard.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="earlier">
+    <div class="mini reveal"><h4>Coding Instructor — Code Ninjas</h4><div class="m">MAY 2024 — AUG 2024</div><p>Taught Java, JavaScript &amp; C++ fundamentals; mentored students building Unity games.</p></div>
+    <div class="mini reveal"><h4>Software Developer Intern — S&amp;IM Corp</h4><div class="m">MAY 2023 — DEC 2023</div><p>React + REST features driving 22% traffic growth; caching cut page load 31%.</p></div>
+    <div class="mini reveal"><h4>Vehicle Control Systems — TMU Hyperloop</h4><div class="m">JAN 2022 — DEC 2023</div><p>Arduino/C++ control systems and RF comms (XBEE); cut signal instability 26%.</p></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="sec-title reveal"><span class="n">03.</span>Projects</h2>
+  <p class="sec-sub reveal">A mix of quantitative engines, ML systems, and full-stack builds. Filter by domain:</p>
+  <div class="filters reveal">
+    <button class="fbtn active" data-f="all">All</button>
+    <button class="fbtn" data-f="quant">Quant &amp; ML</button>
+    <button class="fbtn" data-f="fullstack">Full-Stack</button>
+    <button class="fbtn" data-f="systems">Systems &amp; Embedded</button>
+  </div>
+  <div class="pgrid">
+    <div class="pcard reveal" data-cat="quant">
+      <div class="top"><span class="icon">📈</span></div>
+      <h3>Limit Order Book Simulator <span class="badge">FEATURED</span></h3>
+      <p class="desc">Price-time priority matching engine — O(log n) insert, O(1) top-of-book &amp; cancel — validated by 60 deterministic tests. Runs an Avellaneda-Stoikov market-making strategy with inventory-skewed quoting (positive P&amp;L over 100K+ event sims), calibrates Almgren-Chriss impact via nonlinear regression, and reconstructs live books from Nasdaq ITCH 5.0 binary feeds validated against NBBO.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">Pandas</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="quant">
+      <div class="top"><span class="icon">🚦</span></div>
+      <h3>AI Traffic Management System <span class="badge">FEATURED</span></h3>
+      <p class="desc">Predictive traffic queue forecasting (Random Forest + MLR) fusing municipal data with SUMO simulations. Vertex AI orchestrates signal-phase decisions; ONNX + int8 quantization delivers 2–3× faster inference on Jetson Nano edge hardware. Live React/Next.js dashboard tracks delay, throughput, and model confidence.</p>
+      <div class="tags"><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Vertex AI</span><span class="tag">Next.js</span><span class="tag">ONNX</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="fullstack">
+      <div class="top"><span class="icon">⛓️</span><span class="links"><a href="https://github.com/SSarim/StrongKoffieWallet" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>Blockchain Transaction System</h3>
+      <p class="desc">Cryptographically immutable transaction ledger with FastAPI endpoints, Pydantic validation, and OAuth-secured routes. RabbitMQ message queuing + WebSockets power peer-to-peer exchange; containerized with Docker and deployed on Azure.</p>
+      <div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">RabbitMQ</span><span class="tag">Docker</span><span class="tag">Azure</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="quant">
+      <div class="top"><span class="icon">🏀</span><span class="links"><a href="https://github.com/SSarim/AR-Basketball-Trainer" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>Basketball Form Analyzer</h3>
+      <p class="desc">Real-time shooting form analysis with YOLOv8 object detection, MediaPipe pose estimation, and joint-angle computation. Flask APIs serve deep-learning-driven feedback to improve shooting accuracy and mechanics.</p>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">YOLOv8</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">Flask</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="fullstack">
+      <div class="top"><span class="icon">🌱</span><span class="links"><a href="https://github.com/SSarim/Rewards-System" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>GreenGrove Farm Rewards</h3>
+      <p class="desc">Secure rewards platform with a points engine handling tiered multipliers, diverse transaction scenarios, and edge cases — full auth/authorization protecting user data end to end.</p>
+      <div class="tags"><span class="tag">Django</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">GCP</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="fullstack">
+      <div class="top"><span class="icon">💊</span><span class="links"><a href="https://github.com/SSarim/Medvault" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>Medvault</h3>
+      <p class="desc">Medical &amp; pharmacy management application streamlining patient records, prescriptions, and inventory workflows in a single interface.</p>
+      <div class="tags"><span class="tag">JavaScript</span><span class="tag">Node.js</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="fullstack">
+      <div class="top"><span class="icon">🧠</span><span class="links"><a href="https://github.com/SSarim/HackQuiz-Hub" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>HackQuiz Hub</h3>
+      <p class="desc">Dynamic practice platform for programming enthusiasts — a comprehensive quiz engine for sharpening coding skills and CS fundamentals.</p>
+      <div class="tags"><span class="tag">Java</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="systems">
+      <div class="top"><span class="icon">🕹️</span><span class="links"><a href="https://github.com/SSarim/FPGA_Pong_Game" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>FPGA Pong</h3>
+      <p class="desc">Classic Pong implemented in hardware — game logic, VGA rendering, and input handling synthesized onto an FPGA in C/HDL.</p>
+      <div class="tags"><span class="tag">C</span><span class="tag">FPGA</span><span class="tag">VHDL</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="systems">
+      <div class="top"><span class="icon">🤖</span><span class="links"><a href="https://github.com/SSarim/LandMineRover" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>Land Mine Rover</h3>
+      <p class="desc">Autonomous detection rover combining embedded sensor arrays with Python control logic for hazardous-terrain navigation.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Embedded</span></div>
+    </div>
+    <div class="pcard reveal" data-cat="systems">
+      <div class="top"><span class="icon">⚡</span><span class="links"><a href="https://github.com/SSarim/Simple-Cache-Controller" target="_blank" rel="noopener" title="GitHub">&lt;/&gt;</a></span></div>
+      <h3>Cache Controller</h3>
+      <p class="desc">Simple cache controller implementation in C — mapping, replacement policy, and hit/miss handling for a memory hierarchy.</p>
+      <div class="tags"><span class="tag">C</span><span class="tag">Computer Architecture</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="sec-title reveal"><span class="n">04.</span>Skills</h2>
+  <div class="skill-groups">
+    <div class="sgroup reveal"><h3>// Quantitative &amp; ML</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span><span class="chip">Monte Carlo Simulation</span><span class="chip">Bayesian Inference</span><span class="chip">Time-Series Analysis</span><span class="chip">Stochastic Processes</span><span class="chip">RAG Architectures</span><span class="chip">Pandas / NumPy</span></div></div>
+    <div class="sgroup reveal"><h3>// Languages &amp; Systems</h3><div class="chips"><span class="chip">Python</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">SQL</span><span class="chip">JavaScript / TypeScript</span><span class="chip">MATLAB</span><span class="chip">Unix / Linux</span><span class="chip">Shell Scripting</span></div></div>
+    <div class="sgroup reveal"><h3>// Infrastructure &amp; DevOps</h3><div class="chips"><span class="chip">Docker</span><span class="chip">Kubernetes (EKS/GKE)</span><span class="chip">AWS (Athena, S3)</span><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">Terraform</span><span class="chip">Apache Airflow</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span></div></div>
+    <div class="sgroup reveal"><h3>// Data &amp; Backend</h3><div class="chips"><span class="chip">BigQuery</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Django</span><span class="chip">RabbitMQ</span><span class="chip">ETL Pipelines</span><span class="chip">Databricks</span></div></div>
+    <div class="sgroup reveal"><h3>// Testing &amp; Tooling</h3><div class="chips"><span class="chip">Selenium WebDriver</span><span class="chip">TestNG</span><span class="chip">Postman</span><span class="chip">Jira</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">AccelQ</span><span class="chip">Git</span></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="sec-title reveal"><span class="n">05.</span>Get In Touch</h2>
+  <p class="reveal">I'm a recent Computer Engineering graduate open to quantitative engineering, data engineering, and software roles. My inbox is always open — let's talk.</p>
+  <div class="btn-row reveal" style="justify-content:center">
+    <a class="btn btn-primary" href="mailto:sarimshahwar@gmail.com">sarimshahwar@gmail.com</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sarimshahwar/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn btn-ghost" href="https://github.com/SSarim" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Sarim Shahwar · Toronto, ON</div>
+  <div style="margin-top:6px">built with ♥ &amp; a lot of coffee</div>
+</footer>
+
+<script>
+/* ---------- Typing effect ---------- */
+const roles=["Quantitative Engineer","Data & ML Engineer","Backend Systems Builder","Full-Stack Developer"];
+const typedEl=document.getElementById('typed');
+let ri=0,ci=0,deleting=false;
+function typeLoop(){
+  const word=roles[ri];
+  typedEl.textContent=word.slice(0,ci);
+  if(!deleting){
+    if(ci<word.length){ci++;setTimeout(typeLoop,70);}
+    else{deleting=true;setTimeout(typeLoop,1800);}
+  }else{
+    if(ci>0){ci--;setTimeout(typeLoop,35);}
+    else{deleting=false;ri=(ri+1)%roles.length;setTimeout(typeLoop,300);}
+  }
+}
+typeLoop();
+
+/* ---------- Terminal animation ---------- */
+const termLines=[
+  {t:'<span class="prompt">$</span> whoami',d:400},
+  {t:'<span class="out">sarim_shahwar — computer engineering @ TMU, class of 2026</span>',d:250},
+  {t:'<span class="prompt">$</span> cat experience.log | tail -3',d:600},
+  {t:'<span class="out">[2026] LUCA Theory — <span class="hl">algorithm engineer</span>, Hive platform backend</span>',d:180},
+  {t:'<span class="out">[2026] CPPIB — <span class="hl">senior engineer intern</span>, $700B+ valuations infra</span>',d:180},
+  {t:'<span class="out">[2025] LUCA Theory — <span class="hl">quant intern</span>, 72% directional accuracy</span>',d:180},
+  {t:'<span class="prompt">$</span> python run_simulation.py --events 100000',d:700},
+  {t:'<span class="out">matching engine: OK · P&amp;L: <span class="hl">positive</span> · inventory: bounded ✓</span>',d:400},
+  {t:'<span class="prompt">$</span> ./hire_sarim.sh',d:600},
+  {t:'<span class="out">→ opening mailto:sarimshahwar@gmail.com ...</span>',d:200}
+];
+const termBody=document.getElementById('termBody');
+let tl=0;
+function termLoop(){
+  if(tl>=termLines.length)return;
+  const div=document.createElement('div');
+  div.innerHTML=termLines[tl].t;
+  termBody.appendChild(div);
+  tl++;
+  if(tl<termLines.length)setTimeout(termLoop,termLines[tl-1].d+300);
+}
+setTimeout(termLoop,800);
+
+/* ---------- Canvas: animated price-chart background ---------- */
+const canvas=document.getElementById('chart-bg');
+const ctx=canvas.getContext('2d');
+let W,H,lines=[];
+function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+window.addEventListener('resize',resize);resize();
+class PriceLine{
+  constructor(color,speed,amp,yBase){this.color=color;this.speed=speed;this.amp=amp;this.yBase=yBase;this.points=[];this.x=0;this.y=yBase;
+    for(let x=0;x<=W;x+=6){this.step();this.points.push({x,y:this.y});}}
+  step(){this.y+= (Math.random()-0.5)*this.amp + (this.yBase-this.y)*0.01;}
+  update(){this.step();this.points.push({x:this.points[this.points.length-1].x+6,y:this.y});
+    if(this.points.length>W/6+2){this.points.shift();const dx=this.points[0].x;this.points.forEach(p=>p.x-=6);}}
+  draw(){ctx.beginPath();ctx.strokeStyle=this.color;ctx.lineWidth=1.5;
+    this.points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.stroke();}
+}
+function initLines(){lines=[new PriceLine('#22d3a522',1,14,H*0.35),new PriceLine('#4f9cf922',1,18,H*0.55),new PriceLine('#f5b95015',1,10,H*0.75)];}
+initLines();
+window.addEventListener('resize',initLines);
+let frame=0;
+function animate(){
+  ctx.clearRect(0,0,W,H);
+  /* grid */
+  ctx.strokeStyle='#1e2a3a40';ctx.lineWidth=1;
+  for(let y=0;y<H;y+=60){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  for(let x=0;x<W;x+=60){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  frame++;
+  if(frame%3===0)lines.forEach(l=>l.update());
+  lines.forEach(l=>l.draw());
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* ---------- Scroll reveal ---------- */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- Animated counters ---------- */
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=+el.dataset.count,suffix=el.dataset.suffix||'';
+    const prefix=el.textContent.trim().startsWith('$')?'$':'';
+    let cur=0;const step=Math.max(1,Math.round(target/50));
+    const iv=setInterval(()=>{cur+=step;if(cur>=target){cur=target;clearInterval(iv);}el.textContent=prefix+cur+suffix;},28);
+    cio.unobserve(el);
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ---------- Project filters ---------- */
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.f;
+    document.querySelectorAll('.pcard').forEach(c=>{
+      c.classList.toggle('hide',f!=='all'&&c.dataset.cat!==f);
+    });
+  });
+});
+
+/* ---------- Scrollspy + progress bar ---------- */
+const sections=[...document.querySelectorAll('section[id]')];
+const navA=[...document.querySelectorAll('.nav-links a')];
+window.addEventListener('scroll',()=>{
+  const sc=window.scrollY;
+  document.getElementById('progress').style.width=(sc/(document.body.scrollHeight-innerHeight)*100)+'%';
+  let cur='';
+  sections.forEach(s=>{if(sc>=s.offsetTop-120)cur=s.id;});
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+/* ---------- Mobile nav ---------- */
+const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navA.forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
