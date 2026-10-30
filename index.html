@@ -158,6 +158,40 @@ footer a:hover{color:var(--accent)}
 .resume-link{border:1px solid var(--accent);padding:6px 14px;border-radius:8px;color:var(--accent) !important}
 .resume-link:hover{background:var(--accent);color:#04110c !important;text-decoration:none}
 
+/* Nav order fix */
+.nav-inner{gap:20px}
+.nav-links{margin-left:auto;align-items:center}
+@media(max-width:768px){.nav-right{margin-left:auto}}
+
+/* Social icon row */
+.socials{display:flex;gap:10px;margin-top:22px;align-items:center;flex-wrap:wrap}
+.icon-btn{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:10px;color:var(--muted);background:var(--bg);transition:all .2s}
+.icon-btn:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
+.icon-btn svg{width:19px;height:19px}
+.socials .handle{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-left:6px}
+
+/* Experience: logos + metrics */
+.thead{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.thead .co{margin-bottom:0}
+.co-logo{width:46px;height:46px;flex:none;border-radius:11px;display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:.85rem;border:1px solid var(--border);background:var(--bg2);color:var(--accent);letter-spacing:.02em}
+.co-logo.cp{color:var(--accent2)}
+.co-logo.mc{color:var(--amber)}
+.metric{color:var(--accent);font-weight:600;font-family:var(--mono);font-size:.95em;white-space:nowrap}
+
+/* Contact card */
+.contact-card{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:34px 24px}
+.email-row{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.email-addr{font-family:var(--mono);font-size:clamp(1rem,3.6vw,1.35rem);color:var(--text);word-break:break-all}
+.copy-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:8px;font-family:var(--mono);font-size:.78rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.copy-btn:hover,.copy-btn.done{border-color:var(--accent);color:var(--accent)}
+.copy-btn svg{width:14px;height:14px}
+.contact-meta{display:flex;justify-content:center;gap:10px 24px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin-bottom:26px;font-family:var(--mono)}
+.contact-meta span{display:inline-flex;align-items:center;gap:7px}
+.contact-meta svg{width:15px;height:15px;color:var(--accent)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #22d3a580}70%{box-shadow:0 0 0 8px #22d3a500}100%{box-shadow:0 0 0 0 #22d3a500}}
+.contact-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+
 /* Light theme */
 [data-theme="light"]{--bg:#f5f7fa;--bg2:#ffffff;--card:#ffffffdd;--border:#d8e0ea;--text:#17222e;--muted:#57687a;--accent:#0a8f70;--accent2:#2f6fd0;--amber:#a8700a}
 [data-theme="light"] nav{background:#f5f7fae6}
@@ -171,14 +205,18 @@ footer a:hover{color:var(--accent)}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m4 12.5 5 5L20 6.5"/></symbol>
+</svg>
 <div id="progress"></div>
 <nav>
   <div class="nav-inner">
     <div class="logo">sarim<span>@</span>shahwar<span>:~$</span></div>
-    <div class="nav-right">
-      <button class="theme-btn" id="themeBtn" title="Toggle light/dark mode">☀️</button>
-      <button class="burger" id="burger">☰</button>
-    </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about"><span class="n">01.</span>About</a></li>
       <li><a href="#experience"><span class="n">02.</span>Experience</a></li>
@@ -187,6 +225,10 @@ footer a:hover{color:var(--accent)}
       <li><a href="#contact"><span class="n">05.</span>Contact</a></li>
       <li><a href="Resume_Sarim_Shahwar.pdf" download class="resume-link">Resume ↓</a></li>
     </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" title="Toggle light/dark mode">☀️</button>
+      <button class="burger" id="burger">☰</button>
+    </div>
   </div>
 </nav>
 
@@ -200,9 +242,13 @@ footer a:hover{color:var(--accent)}
       <p class="hero-desc">Computer Engineering graduate (TMU '26) building high-throughput data systems, algorithmic engines, and ML pipelines — from a $700B+ valuations platform at CPPIB to market simulation engines at LUCA Theory.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="#projects">View Projects</a>
-        <a class="btn btn-ghost" href="mailto:sarimshahwar@gmail.com?subject=Opportunity%20for%20Sarim%20Shahwar&body=Hi%20Sarim%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A">Get in Touch</a>
-        <a class="btn btn-ghost" href="Resume_Sarim_Shahwar.pdf" download>Resume ↓</a>
-        <a class="btn btn-ghost" href="https://github.com/SSarim" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="Resume_Sarim_Shahwar.pdf" download>Download Resume ↓</a>
+      </div>
+      <div class="socials">
+        <a class="icon-btn" href="https://github.com/SSarim" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/sarimshahwar/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+        <a class="icon-btn" href="mailto:sarimshahwar@gmail.com?subject=Opportunity%20for%20Sarim%20Shahwar&amp;body=Hi%20Sarim%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A" title="Email" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+        <span class="handle">sarimshahwar@gmail.com</span>
       </div>
     </div>
     <div class="terminal reveal">
@@ -244,8 +290,7 @@ footer a:hover{color:var(--accent)}
   <div class="timeline">
     <div class="titem reveal">
       <div class="when">APR 2026 — JUL 2026</div>
-      <h3>Data Intelligence &amp; Algorithm Engineer</h3>
-      <div class="co">LUCA Theory · Montreal (Remote)</div>
+      <div class="thead"><div class="co-logo lt" aria-hidden="true">LT</div><div><h3>Data Intelligence &amp; Algorithm Engineer</h3><div class="co">LUCA Theory · Montreal (Remote)</div></div></div>
       <ul>
         <li>Built the high-throughput production backend powering the public-facing Hive platform — real-time algorithmic insights and predictive intelligence.</li>
         <li>Enforced strict operational parameters with Zod schema validation: multi-variable confidence permutation scoring and time-locked synchronization.</li>
@@ -254,18 +299,16 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="titem reveal">
       <div class="when">JAN 2026 — APR 2026</div>
-      <h3>Senior Engineer Intern</h3>
-      <div class="co">Canada Pension Plan Investment Board (CPPIB) · Toronto</div>
+      <div class="thead"><div class="co-logo cp" aria-hidden="true">CP</div><div><h3>Senior Engineer Intern</h3><div class="co">Canada Pension Plan Investment Board (CPPIB) · Toronto</div></div></div>
       <ul>
-        <li>Refactored and scaled the Valuations data system (Python, AWS EKS, Athena, S3) supporting reporting of $700B+ in assets while cutting infra costs.</li>
+        <li>Refactored and scaled the Valuations data system (Python, AWS EKS, Athena, S3) supporting reporting of <span class="metric">$700B+</span> in assets while cutting infra costs.</li>
         <li>Integrated Pydantic schema enforcement for complex financial models across microservices.</li>
         <li>Orchestrated fault-tolerant ETL with Apache Airflow; built GitHub Actions CI/CD with automated unit and integration testing.</li>
       </ul>
     </div>
     <div class="titem reveal">
       <div class="when">SEP 2025 — DEC 2025</div>
-      <h3>Software QA Intern</h3>
-      <div class="co">MEDCAN · Toronto</div>
+      <div class="thead"><div class="co-logo mc" aria-hidden="true">MC</div><div><h3>Software QA Intern</h3><div class="co">MEDCAN · Toronto</div></div></div>
       <ul>
         <li>Built cross-browser automation with Selenium WebDriver + TestNG (POM, data-driven, parallel) and AccelQ regression suites.</li>
         <li>Drafted end-to-end test cases from PRDs, mapped to requirements (RTM); validated APIs (Postman) and databases (SQL); tracked defects in Jira.</li>
@@ -273,10 +316,9 @@ footer a:hover{color:var(--accent)}
     </div>
     <div class="titem reveal">
       <div class="when">MAY 2025 — AUG 2025</div>
-      <h3>Quantitative Engineer Intern</h3>
-      <div class="co">LUCA Theory · Montreal (Remote)</div>
+      <div class="thead"><div class="co-logo lt" aria-hidden="true">LT</div><div><h3>Quantitative Engineer Intern</h3><div class="co">LUCA Theory · Montreal (Remote)</div></div></div>
       <ul>
-        <li>Built a "Digital Twin" ML engine simulating market scenarios — 72% directional accuracy, realized ROI of 21.4%–68.7% across volatility regimes.</li>
+        <li>Built a "Digital Twin" ML engine simulating market scenarios — <span class="metric">72%</span> directional accuracy, realized ROI of <span class="metric">21.4%–68.7%</span> across volatility regimes.</li>
         <li>Developed a RAG-augmented Bayesian learning loop recalibrating asset probability weights from live market feedback.</li>
         <li>Ran parallel Monte Carlo simulations on auto-scaling Docker/GKE clusters with a custom JavaScript dashboard.</li>
       </ul>
@@ -284,8 +326,8 @@ footer a:hover{color:var(--accent)}
   </div>
   <div class="earlier">
     <div class="mini reveal"><h4>Coding Instructor — Code Ninjas</h4><div class="m">MAY 2024 — AUG 2024</div><p>Taught Java, JavaScript &amp; C++ fundamentals; mentored students building Unity games.</p></div>
-    <div class="mini reveal"><h4>Software Developer Intern — S&amp;IM Corp</h4><div class="m">MAY 2023 — DEC 2023</div><p>React + REST features driving 22% traffic growth; caching cut page load 31%.</p></div>
-    <div class="mini reveal"><h4>Vehicle Control Systems — TMU Hyperloop</h4><div class="m">JAN 2022 — DEC 2023</div><p>Arduino/C++ control systems and RF comms (XBEE); cut signal instability 26%.</p></div>
+    <div class="mini reveal"><h4>Software Developer Intern — S&amp;IM Corp</h4><div class="m">MAY 2023 — DEC 2023</div><p>React + REST features driving <span class="metric">22%</span> traffic growth; caching cut page load <span class="metric">31%</span>.</p></div>
+    <div class="mini reveal"><h4>Vehicle Control Systems — TMU Hyperloop</h4><div class="m">JAN 2022 — DEC 2023</div><p>Arduino/C++ control systems and RF comms (XBEE); cut signal instability <span class="metric">26%</span>.</p></div>
   </div>
 </section>
 
@@ -376,10 +418,21 @@ footer a:hover{color:var(--accent)}
 <section id="contact">
   <h2 class="sec-title reveal"><span class="n">05.</span>Get In Touch</h2>
   <p class="reveal">I'm a recent Computer Engineering graduate open to quantitative engineering, data engineering, and software roles. Always happy to connect over a coffee chat — virtual or in person!</p>
-  <div class="btn-row reveal" style="justify-content:center">
-    <a class="btn btn-primary" href="mailto:sarimshahwar@gmail.com?subject=Opportunity%20for%20Sarim%20Shahwar&body=Hi%20Sarim%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A">sarimshahwar@gmail.com</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sarimshahwar/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a class="btn btn-ghost" href="https://github.com/SSarim" target="_blank" rel="noopener">GitHub ↗</a>
+  <div class="contact-card reveal">
+    <div class="email-row">
+      <span class="email-addr">sarimshahwar@gmail.com</span>
+      <button class="copy-btn" id="copyEmail" type="button"><svg><use href="#i-copy"/></svg><span>Copy</span></button>
+    </div>
+    <div class="contact-meta">
+      <span><svg><use href="#i-pin"/></svg>Toronto, ON</span>
+      <span><i class="live-dot"></i>Open to Data · ML · Quant roles</span>
+    </div>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="mailto:sarimshahwar@gmail.com?subject=Opportunity%20for%20Sarim%20Shahwar&amp;body=Hi%20Sarim%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.%0A%0A">Email Me</a>
+      <a class="btn btn-ghost" href="Resume_Sarim_Shahwar.pdf" download>Resume ↓</a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/sarimshahwar/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+      <a class="icon-btn" href="https://github.com/SSarim" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -513,6 +566,16 @@ window.addEventListener('scroll',()=>{
 const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
 burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
 navA.forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* ---------- Copy email ---------- */
+const copyBtn=document.getElementById('copyEmail');
+copyBtn.addEventListener('click',async()=>{
+  const email='sarimshahwar@gmail.com';
+  try{await navigator.clipboard.writeText(email);}
+  catch(e){const ta=document.createElement('textarea');ta.value=email;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();}
+  copyBtn.classList.add('done');copyBtn.innerHTML='<svg><use href="#i-check"/></svg><span>Copied</span>';
+  setTimeout(()=>{copyBtn.classList.remove('done');copyBtn.innerHTML='<svg><use href="#i-copy"/></svg><span>Copy</span>';},1800);
+});
 
 /* ---------- Theme toggle ---------- */
 const themeBtn=document.getElementById('themeBtn');
